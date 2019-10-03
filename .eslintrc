@@ -1,0 +1,5 @@
+{
+  "parser": "babel-eslint",
+  "plugins": ["env", "react", "react-hooks"],
+  "parserOptions": { "ecmaVersiaon": 11 }
+}
