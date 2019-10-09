@@ -2,58 +2,44 @@ import React from 'react'
 import Link from 'next/link'
 
 const links = [
-  { href: 'https://github.com/segmentio/create-next-app', label: 'Github' }
-].map(link => {
-  link.key = `nav-link-${link.href}-${link.label}`
-  return link
-})
+  {href: 'https://github.com/webdevdaemon', label: 'Github'},
+  {href: 'https://linkedin.com/in/cm-webdev', label: 'LinkedIn'},
+].map(
+  link => ({...link, key: `nav-link-${link.href}-${link.label}`, })
+)
 
-const Nav = () => (
-  <nav>
-    <ul>
-      <li>
-        <Link prefetch href="/">
-          <a>Home</a>
-        </Link>
-      </li>
-      <ul>
-        {links.map(({ key, href, label }) => (
+const Nav = ({isHidden}) => {
+
+  const ControlStyle = {position: 'absolute'}
+
+  return (
+    <nav className="nav">
+      <ul className="left">
+        <li>
+          <Link passHref href="/">
+            <a className="navlink">Home</a>
+          </Link>
+        </li><li>
+          <Link passHref href="/projects">
+            <a className="navlink">Projects</a>
+          </Link>
+        </li><li>
+          <Link passHref href="/resume">
+            <a className="navlink">Resume</a>
+          </Link>
+        </li>
+      </ul>
+      <ul className="right">
+        {links.map(({key, href, label}) => (
           <li key={key}>
-            <Link href={href}>
-              <a>{label}</a>
+            <Link passHref href={href}>
+              <a className="navlink">{label}</a>
             </Link>
           </li>
         ))}
       </ul>
-    </ul>
-
-    <style jsx>{`
-      :global(body) {
-        margin: 0;
-        font-family: -apple-system, BlinkMacSystemFont, Avenir Next, Avenir,
-          Helvetica, sans-serif;
-      }
-      nav {
-        text-align: center;
-      }
-      ul {
-        display: flex;
-        justify-content: space-between;
-      }
-      nav > ul {
-        padding: 4px 16px;
-      }
-      li {
-        display: flex;
-        padding: 6px 8px;
-      }
-      a {
-        color: #067df7;
-        text-decoration: none;
-        font-size: 13px;
-      }
-    `}</style>
-  </nav>
-)
+    </nav>
+  )
+}
 
 export default Nav

@@ -8,6 +8,11 @@
     "**/npm-debug.log*": true,
     "**/yarn-debug.log*": true,
     "**/yarn-error.log*": true,
-    "node_modules": true
-  }
+    "node_modules": true,
+    "yarn.lock": true,
+    ".git": true,
+    ".vscode": true
+  },
+  "npm.packageManager": "yarn",
+  "eslint.packageManager": "yarn"
 }
