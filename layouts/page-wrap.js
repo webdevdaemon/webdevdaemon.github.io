@@ -5,24 +5,26 @@ import Nav from '../components/nav'
 
 import 'bootstrap/dist/css/bootstrap.min.css'
 import '../styles.scss'
+import { slugify } from '../helpers/index'
+import Footer from '../components/footer'
 
-const PageWrap = ({children, title, description, render}) => {
-  const klass = title.split(' ').join('-').toLowerCase()
+const PageWrap = ({ children, title, description, render }) => {
+  const pageClassName = slugify(title)
   return (
-    <main className={`page ${klass}`}>
-      <Head description={description} title={title}/>
-      <Nav className={title}/>
-      <section>
-        {render instanceof Function
-          ? render()
-          : children instanceof Function
+    <>
+      <Head description={description} title={title} />
+      <main className={`page jumbotron ${pageClassName}`}>
+        <Nav className={`nav ${pageClassName}`} />
+        <section>
+          {render instanceof Function
+            ? render()
+            : children instanceof Function
             ? children()
             : children}
-      </section>
-      <footer className="footer">
-        <p>{`©️ Charles Morgan, circa ${new Date()}`}</p>
-      </footer>
-    </main>
+        </section>
+        <Footer pageTitle={title} />
+      </main>
+    </>
   )
 }
 

@@ -1,5 +1,13 @@
 {
   "parser": "babel-eslint",
-  "plugins": ["env", "react", "react-hooks"],
-  "parserOptions": { "ecmaVersiaon": 11 }
+  "extends": [
+    "plugin:prettier/recommended",
+    "prettier/react",
+    "prettier/standard"
+  ],
+  "parserOptions": { "ecmaVersiaon": 11 },
+  "plugins": ["env", "react", "react-app", "react-hooks", "prettier"],
+  "rules": {
+    "prettier/prettier": "error"
+  }
 }
