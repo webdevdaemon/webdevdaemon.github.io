@@ -9,6 +9,7 @@ import Footer from '../components/footer'
 import ContentView from '../components/content-view'
 import { slugify } from '../helpers/index'
 
+
 const HeroWrap = ({
   children,
   hideNavbar,
@@ -20,6 +21,7 @@ const HeroWrap = ({
   const klassName = slugify(title)
   return (
     <main className={`hero-page ${klassName}`}>
+      <Nav isHidden={hideNavbar} />
       <Head description={description} title={title} />
       {!hideNavbar && <Nav className={title} />}
       <ContentView>{children}</ContentView>
