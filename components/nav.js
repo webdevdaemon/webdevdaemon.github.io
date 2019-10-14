@@ -1,34 +1,50 @@
 import React from 'react'
 import Link from 'next/link'
+import {IconGithub, IconLinkedin} from './utils/icons'
 
-const links = [
-  { href: 'https://github.com/webdevdaemon', label: 'Github' },
-  { href: 'https://linkedin.com/in/cm-webdev', label: 'LinkedIn' },
-].map(link => ({ ...link, key: `nav-link-${link.href}-${link.label}` }))
+const socialLinks = [
+  {
+    href: 'https://github.com/webdevdaemon',
+    label: 'Github',
+    Icon() {
+      return <IconGithub />
+    },
+  },
+  {
+    href: 'https://linkedin.com/in/cm-webdev',
+    label: 'LinkedIn',
+    Icon() {
+      return <IconLinkedin />
+    },
+  },
+].map(link => ({key: `nav-link-${link.href}`, ...link}))
 
-const Nav = ({ isHidden }) => {
-  const ControlStyle = { position: 'absolute' }
+const Nav = ({isHidden, pageClassName}) => {
+  const ControlStyle = {position: 'absolute'}
 
   return isHidden ? null : (
-    <nav className="nav">
+    <nav className={`nav ${pageClassName}`}>
       <ul className="left">
         {[
-          { title: 'home', slug: '' },
-          { title: 'Projects', slug: 'projects' },
-          { title: 'Projects', slug: 'hiring' },
-        ].map(({ title, slug }) => (
-          <li className="nav-li">
-            <Link passHref href={`/${slug}`}>
+          {title: 'cm', href: '/'},
+          {title: 'Work', href: '/projects'},
+          {title: 'Info', href: '/about'},
+        ].map(({title, href}) => (
+          <li className="nav-li" key={`k${href}`}>
+            <Link passHref href={href}>
               <a className="navlink">{title}</a>
             </Link>
           </li>
         ))}
       </ul>
       <ul className="right">
-        {links.map(({ key, href, label }) => (
+        {socialLinks.map(({key, href, label, Icon}) => (
           <li key={key}>
             <Link passHref href={href}>
-              <a className="navlink">{label}</a>
+              {/* <a className="navlink">{label}</a> */}
+              <a className="navlink">
+                <Icon />
+              </a>
             </Link>
           </li>
         ))}

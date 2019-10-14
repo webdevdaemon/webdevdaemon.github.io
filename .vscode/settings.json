@@ -9,9 +9,10 @@
     "**/yarn-debug.log*": true,
     "**/yarn-error.log*": true,
     "node_modules": true,
-    "yarn.lock": true,
     ".git": true,
-    ".vscode": true
+    ".vscode": true,
+    "yarn.lock": true,
+    "_yarn.lock": true
   },
   "npm.packageManager": "yarn",
   "eslint.packageManager": "yarn"

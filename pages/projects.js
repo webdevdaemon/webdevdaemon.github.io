@@ -7,7 +7,7 @@ const Projects = () => {
       desc="Projects Page: A Collection of Charles M's Programming Highlights."
       title="projects"
     >
-      <GalleryOfCards/>
+      <GalleryOfCards />
     </PageWrap>
   )
 }

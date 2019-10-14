@@ -1,7 +1,8 @@
-import React, { useState } from 'react'
+import PropTypes from 'prop-types'
+import React, {useState} from 'react'
 import useInterval from '@use-it/interval'
 
-const LoopList = ({ list = [], interval = 4000, render = null, ...props }) => {
+const LoopList = ({list, interval, render, ...props}) => {
   const [index, setIndex] = useState(0)
   const [int, setInt] = useState(interval)
   const [visible, setVisible] = useState(false)
@@ -12,7 +13,7 @@ const LoopList = ({ list = [], interval = 4000, render = null, ...props }) => {
     },
     renderProps = {
       value: list[index],
-      style: { ...fadeStyles },
+      style: {...fadeStyles},
     }
 
   useInterval(() => {
@@ -27,8 +28,19 @@ const LoopList = ({ list = [], interval = 4000, render = null, ...props }) => {
   return render instanceof Function ? (
     <>{render(renderProps)}</>
   ) : (
-    <p style={{ ...fadeStyles }}>{list[index]}</p>
+    <h5 style={{...fadeStyles}}>{list[index]}</h5>
   )
+}
+
+LoopList.propTypes = {
+  interval: PropTypes.number,
+  list: PropTypes.array,
+  render: PropTypes.any,
+}
+LoopList.defaultProps = {
+  interval: 4600,
+  list: [],
+  render: null,
 }
 
 export default LoopList

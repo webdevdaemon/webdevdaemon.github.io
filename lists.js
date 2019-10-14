@@ -1,5 +1,8 @@
 import React from 'react'
 
+import image1 from './public/markus-spiske-771011-unsplash.jpg'
+import image2 from './public/cyber-city.jpg'
+
 export const subtitles = [
   `Brutal Self-Evaluator`,
   `Everyone's Favorite Co-Worker`,
@@ -57,15 +60,50 @@ export const homePageCardLinks = [
     desc: 'projects',
     title: 'CLICK ME to view projects...',
     styleObject: {},
-  },{
+  },
+  {
     href: '/resume',
     desc: 'resume',
     title: 'CLICK ME to view resume...',
     styleObject: {},
-  },{
+  },
+  {
     href: '/info',
     desc: 'info',
     title: 'CLICK ME to view info...',
     styleObject: {},
+  },
+]
+
+export const projectCards = [
+  {
+    header: `Header A`,
+    title: `Card Title`,
+    text: `A brief description of the represented link/content`,
+    img: image1,
+  },
+  {
+    header: `Header B`,
+    title: `Card Title`,
+    text: `A brief description of the represented link/content`,
+    img: image2,
+  },
+  {
+    header: `Header C`,
+    title: `Card Title`,
+    text: `A brief description of the represented link/content`,
+    img: image1,
+  },
+  {
+    header: `Header D`,
+    title: `Card Title`,
+    text: `A brief description of the represented link/content`,
+    img: image2,
+  },
+  {
+    header: `Header E`,
+    title: `Card Title`,
+    textdescription: `A brief description of the represented link/content`,
+    img: image1,
   },
 ]

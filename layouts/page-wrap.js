@@ -1,44 +1,42 @@
-import PropTypes from 'prop-types'
 import React from 'react'
+import PropTypes from 'prop-types'
+import Footer from '../components/footer'
 import Head from '../components/head'
 import Nav from '../components/nav'
+import {slugify} from '../helpers/index'
 
 import 'bootstrap/dist/css/bootstrap.min.css'
 import '../styles.scss'
-import { slugify } from '../helpers/index'
-import Footer from '../components/footer'
 
-const PageWrap = ({ children, title, description, render }) => {
+const PageWrap = ({
+  children,
+  title = '',
+  render = null,
+  description = '',
+  hideNavbar = false,
+  hideFooter = false,
+  ...props
+}) => {
   const pageClassName = slugify(title)
   return (
     <>
       <Head description={description} title={title} />
-      <main className={`page jumbotron ${pageClassName}`}>
-        <Nav className={`nav ${pageClassName}`} />
-        <section>
-          {render instanceof Function
-            ? render()
-            : children instanceof Function
-            ? children()
-            : children}
-        </section>
-        <Footer pageTitle={title} />
+      <main className={`page-wrap ${pageClassName}`}>
+        <Nav className={`nav ${pageClassName}`} isHidden={hideNavbar} />
+        <section>{render ? render() : children}</section>
+        <Footer pageClassName={pageClassName} isHidden={hideFooter} />
       </main>
     </>
   )
 }
 
 PageWrap.propTypes = {
-  children: PropTypes.any,
   description: PropTypes.string,
+  hideFooter: PropTypes.bool,
+  hideNavbar: PropTypes.bool,
+  children: PropTypes.any,
   render: PropTypes.func,
   title: PropTypes.string,
-}
-
-PageWrap.defaultProps = {
-  description: "Charles Morgan's Online Portfolio",
-  render: null,
-  title: 'Charles Morgan: Web Developer Extraordinaire',
 }
 
 export default PageWrap

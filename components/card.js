@@ -1,18 +1,25 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import {slugify} from '../helpers'
 
-const Card = ({title, desc, children, render, styleObject, ...props}) => {
-
+const Card = ({
+  render,
+  children,
+  styleObject,
+  title,
+  desc,
+  ...props
+}) => {
   return (
-    <div
-      className={`card ${props.className ? props.className : title}`}
-      style={styleObject}
-    >
-      {render ? render(props)
-        : (
-          <><h3>{title}</h3>
-            <p>{desc}</p></>
-        )}
+    <div className={`card ${slugify(title)}`} style={styleObject}>
+      {render ? (
+        render()
+      ) : (
+        <>
+          <h3>{title}</h3>
+          <p>{desc}</p>
+        </>
+      )}
     </div>
   )
 }
@@ -25,8 +32,8 @@ Card.propTypes = {
   title: PropTypes.string,
 }
 Card.defaultProps = {
-  title: 'A Card!',
-  desc: 'What this card does...'
+  title: 'The Card',
+  desc: 'Describing The Card',
 }
 
 export default Card
