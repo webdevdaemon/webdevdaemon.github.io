@@ -12,7 +12,8 @@
     ".git": true,
     ".vscode": true,
     "yarn.lock": true,
-    "_yarn.lock": true
+    "_yarn.lock": true,
+    ".history": true
   },
   "npm.packageManager": "yarn",
   "eslint.packageManager": "yarn"
