@@ -25,10 +25,14 @@ const LoopList = ({list, interval, render, ...props}) => {
     setIndex(_index)
   }, int)
 
-  return render instanceof Function ? (
-    <>{render(renderProps)}</>
-  ) : (
-    <h5 style={{...fadeStyles}}>{list[index]}</h5>
+  return (
+    <div className="loop-list wrapper">
+      {render instanceof Function ? (
+        <>{render(renderProps)}</>
+      ) : (
+        <h5 style={{...fadeStyles}}>{list[index]}</h5>
+      )}
+    </div>
   )
 }
 

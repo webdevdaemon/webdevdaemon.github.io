@@ -31,20 +31,22 @@ const Nav = ({isHidden, pageClassName}) => {
           {title: 'Info', href: '/about'},
         ].map(({title, href}) => (
           <li className="nav-li" key={`k${href}`}>
-            <Link passHref href={href}>
-              <a className="navlink">{title}</a>
+            <Link href={href}>
+              <p className="navlink">{title}</p>
             </Link>
           </li>
         ))}
       </ul>
       <ul className="right">
         {socialLinks.map(({key, href, label, Icon}) => (
-          <li key={key}>
-            <Link passHref href={href}>
+          <li key={key} className="nav-link">
+            <Link href={href}>
               {/* <a className="navlink">{label}</a> */}
-              <a className="navlink">
-                <Icon />
-              </a>
+              {/* <a className="navlink"> */}
+
+              <Icon />
+
+              {/* </a> */}
             </Link>
           </li>
         ))}

@@ -1,0 +1,43 @@
+// Set your brand colors
+$purple: rgb(126, 0, 126);
+$pink: rgb(245, 116, 159);
+$dark-grey: hsl(240, 20%, 25%);
+$light-grey: hsl(240, 20%, 50%);
+$lighter-grey: hsl(240, 20%, 75%);
+$white: #f1f1f1;
+$offBlack: #001921;
+$link-color: rgba(140, 140, 255, 0.8);
+// Update Bulma's global variables
+$grey-dark: $dark-grey;
+$grey-light: $light-grey;
+$primary: $purple;
+$link: $link-color;
+$widescreen-enabled: false;
+$fullhd-enabled: false;
+// Update some of Bulma's component variables
+$body-background-color: $lighter-grey;
+$control-border-width: 2px;
+$input-border-color: transparent;
+$input-shadow: none;
+$family-title: "croissant one", cursive;
+$family-hairline: "Lato-Hairline", sans-serif;
+$family-sans-serif: "Lato", avenir, sans-serif;
+$family-serif: "montserrat", avenir, serif;
+$family-code: "inconsolata", monospace;
+$family-secondary: "ibm plex sans", serif;
+$family-primary: "open sans", sans-serif;
+$family-monospace: "hasklig", "inconsolata", monospace;
+// Update text sizes
+$size-1: 7.2rem;
+$size-2: 6rem;
+$size-3: 4.8rem;
+$size-4: 3.6rem;
+$size-5: 2.4rem;
+$size-6: 1.8rem;
+$size-7: 1.2rem;
+// Padding unit
+$pad: 1.25rem;
+// Transparent tints/colors
+$tintA: rgba(0, 0, 0, 0.4);
+$tintB: rgba(0, 0, 0, 0.6);
+$tintC: rgba(0, 0, 0, 0.8);

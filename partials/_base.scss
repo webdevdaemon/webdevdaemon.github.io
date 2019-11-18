@@ -1,0 +1,26 @@
+html {
+  box-sizing: border-box;
+  overflow: hidden auto;
+  min-height: 100vh;
+  ul { list-style-type: none; }
+  * {
+    &:before,
+    &:after { box-sizing: inherit; }
+  }
+}
+
+body {
+  font-family: 'Muli-Regular', -apple-system, 'BlinkMacSystemFont', 'Avenir Next', 'Avenir', Helvetica, sans-serif;
+  margin: 0;
+  height: 100%;
+  min-height: 100vh;
+  overflow: hidden auto;
+}
+
+button, a {
+  outline: none !important;
+  &:focus {
+    border: none !important;
+    box-shadow: none !important;
+  }
+}

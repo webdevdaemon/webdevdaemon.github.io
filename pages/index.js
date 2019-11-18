@@ -1,80 +1,57 @@
 import React, {useState} from 'react'
+import Link from 'next/link'
 
 import Card from '../components/card'
-import Jumbotron from 'react-bootstrap/Jumbotron'
-import Link from 'next/link'
-import LoopList from '../components/loop-list'
 import PageWrap from '../layouts/page-wrap'
+import LoopList from '../components/loop-list'
+import CenterWrap from '../components/utils/center-wrap'
 
-import useInterval from '@use-it/interval'
-import daemon from '../public/daemon.svg'
 import headshot from '../public/cm-headshot.jpg'
 
-import {Image} from 'react-bootstrap'
+import {Row, Col, Image, Container} from 'react-bootstrap'
 import {subtitles, homePageCardLinks} from '../lists'
-import {useTransition, animated} from 'react-spring'
-
-const AnimatedImage = animated(Image)
 
 const Home = () => {
-  const [toggle, set] = useState(false)
-
-  const transitions = useTransition(toggle, null, {
-    from: {opacity: 0, position: 'absolute', width: '50vh', maxWidth: 400},
-    enter: {opacity: 1},
-    leave: {opacity: 0},
-  })
-
-  const animationTick = useInterval(() => set(!toggle), 7000)
-
   return (
     <PageWrap title="home">
-      <Jumbotron fluid className="hero home">
-        <div className="row empty">
-          {transitions.map(({item, key, props}) =>
-            item ? (
-              <AnimatedImage
-                className={`trans-image headshot`}
-                fluid
-                roundedCircle
-                src={headshot}
-                style={props}
-              />
-            ) : (
-              <AnimatedImage
-                className={`trans-image daemon`}
-                fluid
-                roundedCircle
-                src={daemon}
-                style={props}
-              />
-            ),
-          )}
-        </div>
-        <h2 className="title">Charles Morgan</h2>
-        <h5 className="subtitle">
-          Web Developer Extraordinaire
-          <br />&<br />
-        </h5>
-        <LoopList
-          list={subtitles}
-          interval={2250}
-          render={({value, style}) => {
-            return (
-              <h5 className="description" style={style}>
-                {value}
-              </h5>
-            )
-          }}
-        />
-      </Jumbotron>
-      <div className="row">
-        {homePageCardLinks.map(({href, title, desc, styleObject}) => (
-          <Link key={`${href}-${title}`} href={href} passHref>
-            <Card styleObject={styleObject} title={title} desc={desc} />
-          </Link>
-        ))}
-      </div>
+      <Container className="hero">
+        <CenterWrap className="center-wrap">
+          <Image className="headshot" src={headshot} />
+        </CenterWrap>
+        <Row className="title-name">
+          <Col xs={12}>
+            <h1 className="monogram">{`Charles Morgan`}</h1>
+          </Col>
+        </Row>
+        <Row className="loop-list">
+          <LoopList
+            list={subtitles}
+            interval={5000}
+            render={({value, style}) => {
+              return (
+                <h5 className="current-value" style={style}>
+                  {value}
+                </h5>
+              )
+            }}
+          />
+        </Row>
+      </Container>
+      <Container className="card-links">
+        <Row className="home-cards">
+          {homePageCardLinks.map(({href, title, desc, styleObject}) => (
+            <Col
+              key={`${href}-${title}`}
+              md={Math.round(12 / homePageCardLinks.length)}
+              sm={12}
+            >
+              <Link href={href}>
+                <Card style={styleObject} title={title} desc={desc} />
+              </Link>
+            </Col>
+          ))}
+        </Row>
+      </Container>
     </PageWrap>
   )
 }

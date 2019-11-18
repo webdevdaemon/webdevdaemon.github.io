@@ -17,5 +17,10 @@
   },
   "npm.packageManager": "yarn",
   "eslint.packageManager": "yarn",
+  "cSpell.words": [
+    "headshot",
+    "imgs",
+    "sprops"
+  ],
   "standard.enable": false
 }

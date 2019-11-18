@@ -23,7 +23,7 @@ const PageWrap = ({
       <Head description={description} title={title} />
       <main className={`page-wrap ${pageClassName}`}>
         <Nav className={`nav ${pageClassName}`} isHidden={hideNavbar} />
-        <section>{render ? render() : children}</section>
+        <section className="content-view">{render ? render() : children}</section>
         <Footer pageClassName={pageClassName} isHidden={hideFooter} />
       </main>
     </>
