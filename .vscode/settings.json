@@ -21,5 +21,6 @@
     "headshot",
     "imgs",
     "sprops"
-  ]
+  ],
+  "standard.enable": false
 }

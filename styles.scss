@@ -1,52 +1,27 @@
-@import './partials/index.scss';
-
-html {
-  overflow: hidden auto;
-  box-sizing: border-box;
-  height: 100vh;
-  * {
-    &:before,
-    &:after {
-      box-sizing: inherit;
-    }
-  }
-}
-
-body {
-  font-family: 'Muli-Regular', -apple-system, 'BlinkMacSystemFont', 'Avenir Next', 'Avenir', Helvetica, sans-serif;
-  margin: 0;
-}
+@import './partials';
 
 .page-wrap {
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0 auto;
   height: 100%;
-  
-
-  &.projects {
-    max-height: 100vh;
-    min-height: 100vh;
-    overflow: auto;
-  }
-
-  .footer {
-    flex: 0 0 auto;
-  }
 }
 
 .nav {
-  font-size: 18px;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  width: 100vw;
-  height: 50px;
+  font-size: 18px;
   text-align: center;
-
+  height: 50px;
+  width: 100vw;
+  
   &.home {
     justify-content: space-between;
   }
-
+  
   .left {
     line-height: var(--header-height);
     display: flex;
@@ -56,92 +31,141 @@ body {
     height: var(--header-height);
     padding-left: 0;
   }
-
+  
   .right {
     display: flex;
     flex-direction: row;
     justify-content: flex-end;
     padding-right: 0;
   }
-
-  li {
+  
+  .navlink {
     display: flex;
     padding: 0 12px;
-
+    text-decoration: none;
+    vertical-align: middle;
+    height: var(--header-height);
+    color: var(--color-navlink-text);
+    line-height: var(--header-height);
+    
     &:hover,
     &:active,
     &:focus {
       background: var(--color-navlink-text);
-
-      .navlink {
-        color: var(--color-navlink-bg);
-      }
-    }
-
-    .navlink {
-      line-height: var(--header-height);
-      height: var(--header-height);
-      vertical-align: middle;
-      text-decoration: none;
-      color: var(--color-navlink-text);
+      color: var(--color-navlink-bg);
     }
   }
+}
+
+.content-view {
+  height: 100%;
+  min-height: 90vh;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding-top: 7vh;
+  margin: 0;
+}
+
+.footer {
+  display: block;
+  flex: 0 0 auto;
 }
 
 .hero {
+  margin: 0;
   width: 100%;
-  height: 720px;
-  background-image: linear-gradient(to top, #ffe070 0%, #F1E8D2 100%);
 
-    .title {
-      width: 100%;
-      margin: 0;
-      padding-top: 30px;
-      text-align: center;
-    }
-
-    .description {
-      min-height: 40px;
+  .center-wrap {}
+  .title-name {
+    .monogram {
+      overflow: visible;
+      white-space: nowrap;
+      font-size: 8vmax;
+      margin: 1.5rem auto;
       text-align: center;
     }
   }
 
+  .row.hero-row {
+    max-width: none !important;
+    margin: none;
+  }
 
-.row {
-  // margin: 80px auto 40px;
-  max-width: 880px;
-  margin: 0 auto;
-  display: flex;
-  flex-direction: row;
-  align-items: stretch;
-  justify-content: space-around;
-  &.empty {
-    height: '50vh';
+  .title {
+    margin: 0 auto;
+    padding-top: 30px;
+    text-align: center;
+    width: 100%;
+    &.name {font-size: 8vw;}
+  }
+
+  .subtitle {
+    margin: 0 auto;
+    padding-top: 30px;
+    text-align: center;
+    width: 100%;
+    &.name {
+      font-size: 2.5vw;
+    }
+  }
+  .description {
+    min-height: 40px;
+    text-align: center;
   }
 }
 
-.card {
+.row {
   width: 100%;
-  padding: 18px 18px 24px;
-  text-align: left;
-  text-decoration: none;
-  color: #434343;
-  border: 1px solid #9b9b9b;
-  &:hover { border-color: #067df7; }
-  .card-text { font-size: 16px; }
-  .card-title { font-size: 22px; }
-  .card-header { font-size: 20px; }
-  p {
-    font-size: 16px;
-    margin: 0;
-    padding: 12px 0 0;
-    color: #333333;
-  }
+  margin: 1vh auto 0 auto;
+  padding: 0.5rem 0 0 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.home-cards {
+  flex-direction: row;
 }
 
 .scroll-box {
+  transition-property: position;
   height: 100%;
   display: block;
   overflow: hidden scroll;
   max-height: 90vh;
+}
+
+.headshot {
+  border: solid 1rem $white;
+  box-shadow: 2px 12px 12px rgba(0, 0, 0, .45);
+  box-sizing: content-box;
+  max-width: 360px;
+  margin: 0 auto;
+}
+
+.loop-list.row {
+  @extend %center-center;
+  width: 100%;
+  height: var(--loop-list-height);
+  color: var(--text-color--callout);
+  background-color: var(--background-color--callout);
+
+  .loop-list.wrapper{
+    display: flex;
+    height: var(--loop-list-height);
+    width: 100%;
+    margin: auto;
+
+    .current-value {
+      display: block;
+      margin: auto;
+      padding: 0;
+      font-size: 3.5vh;
+      text-align: center;
+    }
+  }
 }

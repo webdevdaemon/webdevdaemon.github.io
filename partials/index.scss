@@ -1,6 +1,11 @@
-@import './elements/index.scss';
-@import './mixins/index.scss';
+@import './elements';
+@import './mixins';
 @import './css-vars.scss';
 
+@import './_base.scss';
+@import './_helpers.scss';
+@import './_utilities.scss';
+@import './_variables.scss';
 
+/* MUST BE LAST */
 @import './type-scale.scss';
