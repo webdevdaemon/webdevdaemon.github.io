@@ -45,20 +45,20 @@ export const subtitles = [
 export const homePageCardLinks = [
   {
     href: '/projects',
-    desc: 'projects',
-    title: 'CLICK ME to view projects...',
+    title: 'projects',
+    desc: 'CLICK ME to view projects...',
     styleObject: {},
   },
   {
     href: '/resume',
-    desc: 'resume',
-    title: 'CLICK ME to view resume...',
+    title: 'resume',
+    desc: 'CLICK ME to view resume...',
     styleObject: {},
   },
   {
     href: '/info',
-    desc: 'info',
-    title: 'CLICK ME to view info...',
+    title: 'info',
+    desc: 'CLICK ME to view info...',
     styleObject: {},
   },
 ]

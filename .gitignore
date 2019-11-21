@@ -22,3 +22,6 @@ yarn-error.log*
 .history
 .history/**
 .gitignore_**
+.vscode
+**/.vscode/settings.json
+/.vscode/settings.json

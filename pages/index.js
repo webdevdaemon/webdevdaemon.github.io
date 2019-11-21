@@ -1,5 +1,4 @@
-import React, {useState} from 'react'
-import Link from 'next/link'
+import React from 'react'
 
 import Card from '../components/card'
 import PageWrap from '../layouts/page-wrap'
@@ -29,27 +28,12 @@ const Home = () => {
             interval={5000}
             render={({value, style}) => {
               return (
-                <h5 className="current-value" style={style}>
+                <p className="current-value" style={style}>
                   {value}
-                </h5>
+                </p>
               )
             }}
           />
-        </Row>
-      </Container>
-      <Container className="card-links">
-        <Row className="home-cards">
-          {homePageCardLinks.map(({href, title, desc, styleObject}) => (
-            <Col
-              key={`${href}-${title}`}
-              md={Math.round(12 / homePageCardLinks.length)}
-              sm={12}
-            >
-              <Link href={href}>
-                <Card style={styleObject} title={title} desc={desc} />
-              </Link>
-            </Col>
-          ))}
         </Row>
       </Container>
     </PageWrap>
